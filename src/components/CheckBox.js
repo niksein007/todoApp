@@ -5,10 +5,11 @@ const CheckBox = (props) => {
   return (
     <div className="CheckBox">
       <input
+      id={props.id}
         type="checkbox"
         checked={props.completed}
-        //using the key as index from the database array
-        onChange={(e)=>props.handleCheckBox(e,props.index)}
+        //using the index as id from the database array
+        onChange={(e)=>props.handleCheckBox(e,props.id)}
       />
     </div>
   );

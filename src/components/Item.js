@@ -7,9 +7,9 @@ const Item = (props) => {
       <ChecKBox
         completed={props.item.completed}
         handleCheckBox={props.handleCheckBox}
-        index ={props.index}
+        id={props.id}
       />
-      <div>{props.item.text}</div>
+      <label htmlFor={props.id}>{props.item.text}</label>
     </div>
   );
 };
