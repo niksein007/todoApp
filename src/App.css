@@ -1,5 +1,6 @@
-.App {
-  background-color: green;
+.Item {
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=App.css.map */
