@@ -1,6 +1,51 @@
 .Item {
+  background-color: #81C784;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 1rem;
+  box-shadow: 1px 2px 4px 0px black;
+  border-radius: 2%;
+}
+.Item .item_main {
   display: flex;
   justify-content: center;
+}
+.Item .item_subShow, .Item .item_subHide {
+  text-align: center;
+  display: block;
+}
+.Item .item_subHide {
+  display: none;
+}
+
+.form {
+  width: 80%;
+  margin: auto;
+  height: 30vh;
+  background-color: #F1F8E9;
+  margin-bottom: 1rem;
+}
+.form .input {
+  display: block;
+  height: 30px;
+  width: 40%;
+  margin: auto;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  outline: none;
+  padding: 0px 30px;
+}
+.form input[type=submit] {
+  width: 10%;
+  margin-left: 60%;
+  border-radius: 5px;
+}
+.form input[type=submit]:hover {
+  background-color: #C5E1A5;
+}
+
+.App {
+  background-color: #F0F4C3;
 }
 
 /*# sourceMappingURL=App.css.map */

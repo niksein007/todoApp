@@ -1,4 +1,21 @@
-.Item{
-    display:flex;
+.Item {
+    background-color: #81C784;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 1rem;
+    box-shadow: 1px 2px 4px 0px black;
+    border-radius: 2%;
+  .item_main {
+    display: flex;
     justify-content: center;
+  }
+  .item_subShow {
+    text-align: center;
+    display: block;
+  }
+  .item_subHide{
+      @extend .item_subShow;
+      display:none;
+  }
+  
 }

@@ -1,0 +1,28 @@
+.form {
+  width: 80%;
+  margin: auto;
+  height: 30vh;
+  background-color: #F1F8E9;
+  margin-bottom: 1rem;
+
+  .input {
+    display: block;
+    height: 30px;
+    width: 40%;
+    margin: auto;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    outline: none;
+    padding: 0px 30px;
+  }
+  input[type="submit"] {
+    width: 10%;
+    margin-left: 60%;
+    border-radius: 5px;
+
+    &:hover{
+        background-color: #C5E1A5;
+    }
+}
+
+}

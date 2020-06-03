@@ -76,9 +76,10 @@ class App extends React.Component {
     });
     return (
       <div className="App">
-        <CreateItem CreateItem={this.CreateItem} />
 
         {databaseItems}
+        <CreateItem CreateItem={this.CreateItem} />
+
       </div>
     );
   }
