@@ -1,0 +1,46 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // margin-top: 20px;
+  margin-bottom: 10px;
+  // border-top: 1px solid black;
+  min-height: 90vh;
+  background-color: black;
+
+  form {
+      width: 95%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    fieldset {
+       font-size: larger;
+       font-weight: bold;
+       color:blue;
+       margin: 5px;
+       border: none;
+
+    }
+    input {
+      display: block;
+      width: 90%;
+      margin: 0 auto 10px auto;
+      height: 50px;
+      border-radius: 10px;
+      outline: none;
+      padding: 10px;
+    font-size: larger;
+
+      
+    }
+    input:nth-of-type(1){
+        margin-top: 10px;
+    }
+
+    input[type='submit'] {
+        width: auto;
+    color: green;
+
+    }
+  }
+}

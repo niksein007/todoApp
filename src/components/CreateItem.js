@@ -16,7 +16,7 @@ class CreateItem extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.props.CreateItem(this.state);
+    this.props.createItemHandler(this.state);
 
     this.setState({
       text: "",
@@ -25,34 +25,32 @@ class CreateItem extends React.Component {
       time: "",
       endTime: "",
     });
+
+    this.props.showItems()
   };
   render() {
     return (
-      <div>
-        <form className="form" onSubmit={this.submitHandler}>
-          <input
-            className="input"
-            type="text"
+      <div className="CreateItem">
+        <form onSubmit={this.submitHandler}>
+          <textarea
+            value={this.state.text}
             onChange={this.dataHandler}
             name="text"
-            value={this.state.text}
           />
+
           <input
-            className="input"
             type="date"
             onChange={this.dataHandler}
             name="date"
             value={this.state.date}
           />
           <input
-            className="input"
             type="time"
             onChange={this.dataHandler}
             name="time"
             value={this.state.time}
           />
           <input
-            className="input"
             type="time"
             onChange={this.dataHandler}
             name="endTime"
@@ -61,6 +59,7 @@ class CreateItem extends React.Component {
 
           <input type="submit" />
         </form>
+        <button onClick={this.props.showItems}>View Entries</button>
       </div>
     );
   }

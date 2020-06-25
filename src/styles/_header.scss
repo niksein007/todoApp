@@ -1,0 +1,39 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  .title {
+    margin-left: 10px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: larger;
+    font-weight: 700;
+  }
+
+  .menu-burger {
+    width: 28px;
+    height: 4px;
+    background-color: black;
+    position: relative;
+    margin: 4px 10px 0 0;
+
+    &::before { 
+      position: absolute;
+      content: "";
+      background-color: black;
+      height: 4px;
+      width: 25px;
+      top: 7px;
+      z-index: 1;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: black;
+      height: 4px;
+      width: 20px;
+      top: 14px;
+      z-index: 1;
+    }
+  }
+}

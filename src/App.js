@@ -3,12 +3,31 @@ import "./App.css";
 import { database } from "./components/todoData";
 import Item from "./components/Item";
 import CreateItem from "./components/CreateItem";
+import User from "./components/User";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 class App extends React.Component {
   state = {
     data: [],
+    loggedIn: false,
+    addItem:false,
   };
-  CreateItem = (newItem) => {
+
+  loggedIn = () => {
+    this.setState({
+      loggedIn: true,
+    });
+  };
+
+  addItemHandler = () => {
+  
+    this.setState((prevState)=>{
+      return {addItem:!prevState.addItem}
+    });
+  };
+
+  createItemHandler = (newItem) => {
     this.setState((prevState) => {
       let newData = [...prevState.data, newItem];
       return {
@@ -34,24 +53,7 @@ class App extends React.Component {
       return item;
     });
 
-    //  console.log(newData);
-    //  console.log(this.state.data);
     this.setState({ data: newData });
-
-    //when state is modified indirectly the problem of rerendering this not occur in this case
-    //     this.setState((prevState) => {
-    //       let newData = prevState.data.map((item, mapIndex) => {
-    //         if (mapIndex === id) {
-    // console.log(item.completed);
-    //           return {
-    //             ...item,
-    //           completed:!item.completed
-    //           }
-    //         }
-    //         return item;
-    //       });
-    //       return { data: newData };
-    //     });
   };
 
   componentDidMount() {
@@ -60,14 +62,10 @@ class App extends React.Component {
     this.setState({ data: database });
   }
   render() {
-    // console.log('render');
-
     const databaseItems = this.state.data.map((item, index) => {
       return (
         <Item
           key={index}
-          // key is not a property it will return undefined
-          //using index to get the index value
           id={index}
           item={item}
           handleCheckBox={this.handleCheckBox}
@@ -76,10 +74,26 @@ class App extends React.Component {
     });
     return (
       <div className="App">
+        <Header />
+        {!this.state.loggedIn ? (
+          <User loggedIn={this.loggedIn} />
+        ) : (
+          <div>
+            {!this.state.addItem && (
+              <div>
+                {databaseItems}
+                <button className="addItemBtn" onClick={this.addItemHandler}>
+                  Add More
+                </button>
+              </div>
+            )}
+            {this.state.addItem && (
+              <CreateItem createItemHandler={this.createItemHandler} showItems={this.addItemHandler} />
+            )}
+          </div>
+        )}
 
-        {databaseItems}
-        <CreateItem CreateItem={this.CreateItem} />
-
+        <Footer />
       </div>
     );
   }

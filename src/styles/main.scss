@@ -1,6 +1,17 @@
 @use 'item';
 @use 'checkBox';
 @use 'createItem';
+@use 'header';
+@use 'footer';
+@use 'user';
+
 .App{
-    background-color: #F0F4C3;
+    background-color: whitesmoke;
+    .addItemBtn{
+        display: block;
+        width:100px;
+        font-size: larger;
+        font-weight: bold;
+        margin: 0 auto 50px auto;
+    }
 }
