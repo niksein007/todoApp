@@ -7,6 +7,17 @@ import User from "./components/User";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+import Plans from "./components/Plans";
+import PersonalQuotes from "./components/PersonalQuotes";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Login from "./components/Login";
+import Logout from "./components/Logout";
+
+
+import { BrowserRouter,Switch, Route,Link} from "react-router-dom";
+
+
 class App extends React.Component {
   state = {
     data: [],
@@ -74,8 +85,24 @@ class App extends React.Component {
     });
     return (
       <div className="App">
-        <Header />
-        {!this.state.loggedIn ? (
+        <BrowserRouter>
+
+        <Header link ={Link} />
+
+        
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/">
+            <Logout />
+          </Route>
+        </Switch>
+
+        {/* {!this.state.loggedIn ? (
           <User loggedIn={this.loggedIn} />
         ) : (
           <div>
@@ -93,9 +120,12 @@ class App extends React.Component {
               <CreateItem createItemHandler={this.createItemHandler} showItems={this.addItemHandler} />
             )}
           </div>
-        )}
+        )} */}
 
         <Footer />
+
+        </BrowserRouter>
+
       </div>
     );
   }
