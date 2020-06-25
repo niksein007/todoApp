@@ -1,14 +1,17 @@
 .Header {
+  padding-top: 10px;
+  position: relative;
   display: flex;
   justify-content: space-between;
   height: 50px;
   background-color: whitesmoke;
+
   .title {
     margin-left: 10px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: larger;
     font-weight: 700;
-  }
+  }  
 
   .menu-burger {
     width: 28px;
@@ -37,4 +40,62 @@
       z-index: 1;
     }
   }
+
+  nav{
+    
+    display: none;
+
+    &.visible{
+      display: block;
+      position: absolute;
+      z-index: 1;
+      height: 87vh;
+      background-color:black;
+      color: white;
+      width: 100vw;
+      top: 50px;
+      padding:20px 30px;
+      font-size: 1.5rem;
+
+    }
+
+    .list{
+      list-style-type: none;
+      font-weight:bold;
+    }
+
+    .list-item{
+      padding: 5px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+
+      &:hover{
+        background-color: gray;
+      }
+
+      .inner-list-item{
+      margin-bottom: 5px;
+
+      &:hover{
+        background-color: black;
+      }
+
+      }
+
+    }
+
+    .inner-list{
+      display: none;
+
+      &.visible{
+      display: block;
+      padding: 0 20px;
+      font-weight:lighter;
+
+
+      }
+    }
+  }
+
+
 }
