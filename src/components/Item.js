@@ -1,33 +1,40 @@
 import React from "react";
-import ChecKBox from "./CheckBox";
 
 const Item = (props) => {
-  const item_sub = ()=>{
-let sub =document.getElementById(`sub${props.id}`);
+  const displayDetails = () => {
+    let itemData = document.getElementById(`data${props.id}`);
 
-sub.className = sub.className ==="item_subShow"?"item_subHide":"item_subShow"
-
-  }
+    itemData.className =
+      itemData.className === "item-dataShow"
+        ? "item-dataHide"
+        : "item-dataShow";
+  };
   return (
     <div className="Item">
-      <div className="item_main" >
-      <ChecKBox
-        completed={props.item.completed}
-        handleCheckBox={props.handleCheckBox}
+      <div className='main-item'>
+        <div className='title'>
+        <input
         id={props.id}
+        type="checkbox"
+        checked={props.item.completed}
+        //using the index as id from the database array
+        onChange={(e) => props.handleCheckBox(e, props.id)}
       />
       <label htmlFor={props.id}>
-      <span> {props.item.text}</span> <button onClick={item_sub}>&dArr;</button>
+        <span className='text'> {props.item.text}</span>{" "}
       </label>
+        </div>
+     
+      <button onClick={displayDetails}>&dArr;</button>
 
       </div>
+     
 
-
-      <div id={`sub${props.id}`} className="item_subShow">
-      <div className='date'>Date: {props.item.date}</div>  
-      <div className='time'>Start Time:{props.item.time}</div>   
-      <div className='endtime'>End Time:{props.item.endTime}</div> 
-      </div>  
+      <div id={`data${props.id}`} className="item-dataHide">
+        <div className="date">Date: {props.item.date}</div>
+        <div className="time">Start Time:{props.item.time}</div>
+        <div className="endtime">End Time:{props.item.endTime}</div>
+      </div>
     </div>
   );
 };

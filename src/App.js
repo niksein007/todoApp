@@ -80,8 +80,10 @@ class App extends React.Component {
         ) : (
           <div>
             {!this.state.addItem && (
-              <div>
-                {databaseItems}
+              <div className='items'>
+                 {databaseItems}
+               <div>  
+                 </div>
                 <button className="addItemBtn" onClick={this.addItemHandler}>
                   Add More
                 </button>

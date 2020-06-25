@@ -7,6 +7,7 @@ class CreateItem extends React.Component {
     date: "",
     time: "",
     endTime: "",
+    errMsg:false,
   };
   dataHandler = (e) => {
     this.setState({
@@ -16,7 +17,11 @@ class CreateItem extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.props.createItemHandler(this.state);
+if (this.state.text === '') {
+  this.setState({errMsg:true})
+  return
+}
+    this.props.createItemHandler(this.state);//in the App
 
     this.setState({
       text: "",
@@ -29,14 +34,18 @@ class CreateItem extends React.Component {
     this.props.showItems()
   };
   render() {
+   
     return (
       <div className="CreateItem">
         <form onSubmit={this.submitHandler}>
           <textarea
-            value={this.state.text}
+            value={ this.state.text }
             onChange={this.dataHandler}
             name="text"
+            placeholder='Enter Activity' 
+            className={this.state.errMsg && 'errMsgBorder'}
           />
+          <p className={ this.state.errMsg ? 'errMsg':'errMsgHide'}>Please enter activity!!! *</p>
 
           <input
             type="date"

@@ -69,4 +69,19 @@
       background-color: #77cf12;
     }
   }
+
+  .errMsg{
+    color: red;
+    margin-bottom: 8px;
+  }
+  .errMsgHide{
+    display: none;
+  }
+  .errMsgBorder{
+    border: 1px solid red;
+  }
 }
+
+
+
+
